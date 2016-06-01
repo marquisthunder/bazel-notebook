@@ -30,8 +30,7 @@ RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get -y install gcc-4.9 g++-4.9 clang-3.4 gdebi-core
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.9
 RUN apt-get -y install unzip zip bzip2 libbz2-dev zlib1g-dev 
-RUN conda install -c cidermole jdk8=8.u77
-ENV JAVA_HOME /opt/conda
+RUN apt-get -y install java8-jdk
 RUN wget https://github.com/bazelbuild/bazel/releases/download/0.2.2b/bazel_0.2.2b-linux-x86_64.deb && gdebi ./bazel_0.2.2b-linux-x86_64.deb
 ENV PATH "$PATH:/bazel/output"
 
