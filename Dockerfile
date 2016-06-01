@@ -26,10 +26,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN apt-get -y install software-properties-common
-RUN add-apt-repository ppa:ubuntu-toolchain-r/test
-RUN apt-get -y update
-RUN apt-get -y upgrade
+RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get -y install gcc-4.9 g++-4.9 clang-3.4
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.9
 RUN apt-get -y install unzip zip bzip2 libbz2-dev zlib1g-dev 
